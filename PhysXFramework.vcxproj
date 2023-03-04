@@ -129,6 +129,7 @@
     <ClInclude Include="TriggerTestScene.h" />
     <ClInclude Include="VertexStructs.h" />
     <ClInclude Include="W1_AssignmentScene.h" />
+    <ClInclude Include="W2_AssignmentScene.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AudioTestScene.cpp" />
@@ -177,6 +178,7 @@
     <ClCompile Include="TrackingCamera.cpp" />
     <ClCompile Include="TriggerTestScene.cpp" />
     <ClCompile Include="W1_AssignmentScene.cpp" />
+    <ClCompile Include="W2_AssignmentScene.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

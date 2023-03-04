@@ -19,5 +19,7 @@ protected:
 
 private:
 	std::vector<GameObject*> m_Wall{};
+
+	GameObject* m_Ball{};
 };
 

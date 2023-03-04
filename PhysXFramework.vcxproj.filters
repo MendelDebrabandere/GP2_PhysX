@@ -196,6 +196,9 @@
     <ClInclude Include="W1_AssignmentScene.h">
       <Filter>GameFiles\Scenes\W01_PhysX</Filter>
     </ClInclude>
+    <ClInclude Include="W2_AssignmentScene.h">
+      <Filter>GameFiles\Scenes\W02_PhysX</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -326,6 +329,9 @@
     </ClCompile>
     <ClCompile Include="W1_AssignmentScene.cpp">
       <Filter>GameFiles\Scenes\W01_PhysX</Filter>
+    </ClCompile>
+    <ClCompile Include="W2_AssignmentScene.cpp">
+      <Filter>GameFiles\Scenes\W02_PhysX</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -32,11 +32,47 @@ void W1_AssignmentScene::Initialize()
 		}
 	}
 
+	//SPHERE
+	m_Ball = new SpherePosColorNorm(1.f, 10, 10, XMFLOAT4{ Colors::Gray });
+	m_Ball->Translate(0, 10, -20);
+
+	auto pSphereActor = pPhysX->createRigidDynamic(PxTransform{ PxIdentity });
+	PxRigidActorExt::createExclusiveShape(*pSphereActor, PxSphereGeometry{ 1 }, *pDefaultMaterial);
+	PxRigidBodyExt::setMassAndUpdateInertia(*pSphereActor, 100);
+	m_Ball->AttachRigidActor(pSphereActor);
+
+	AddGameObject(m_Ball);
+
+
+	
+
+	//CAMERA
+	m_SceneContext.GetCamera()->SetPositionAndLookAt(XMFLOAT3(-30.f, 10.f, 0.f), XMFLOAT3{0,3.14,0});
+
 }
 
 void W1_AssignmentScene::Update()
 {
+	const float moveSpeed{ 5.f };
+	if (m_SceneContext.GetInput()->IsKeyboardKey(InputTriggerState::down, VK_LEFT))
+	{
+		m_Ball->GetRigidActor()->is<PxRigidDynamic>()->addTorque({ moveSpeed,0,0 }, PxForceMode::eACCELERATION);
+	}
 
+	if (m_SceneContext.GetInput()->IsKeyboardKey(InputTriggerState::down, VK_RIGHT))
+	{
+		m_Ball->GetRigidActor()->is<PxRigidDynamic>()->addTorque({ -moveSpeed,0,0 }, PxForceMode::eACCELERATION);
+	}
+
+	if (m_SceneContext.GetInput()->IsKeyboardKey(InputTriggerState::down, VK_UP))
+	{
+		m_Ball->GetRigidActor()->is<PxRigidDynamic>()->addTorque({ 0,0,-moveSpeed }, PxForceMode::eACCELERATION);
+	}
+
+	if (m_SceneContext.GetInput()->IsKeyboardKey(InputTriggerState::down, VK_DOWN))
+	{
+		m_Ball->GetRigidActor()->is<PxRigidDynamic>()->addTorque({ 0,0,moveSpeed }, PxForceMode::eACCELERATION);
+	}
 }
 
 void W1_AssignmentScene::Draw() const
